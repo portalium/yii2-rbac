@@ -11,6 +11,8 @@ use portalium\rbac\Module;
 use portalium\rbac\models\Assignment;
 use portalium\rbac\models\AuthItem;
 use portalium\rbac\components\BulkAuthAssignmentHelper;
+use portalium\user\models\GroupSearch;
+use portalium\user\models\UserSearch;
 
 
 /**
