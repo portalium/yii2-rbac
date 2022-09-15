@@ -38,6 +38,6 @@ class RoleController extends BaseAuthItemController
     {
         if (!Yii::$app->user->can('userWebRoleViewPath'))
             throw new ForbiddenHttpException('You are not allowed to perform this action.');
-        return '@portalium/' . $this->module->id . '/views/' . Yii::$app->id . '/auth/item';
+        return '@portalium/' . $this->module->id . '/views/' . Yii::$app->id . '/item';
     }
 }

@@ -1,7 +1,7 @@
 <?php
 use yii\db\Migration;
-
-class m010101_010104_user_rbac extends Migration
+?>
+/*class m010101_010104_rbac extends Migration
 {
     public function up()
     {
@@ -32,4 +32,4 @@ class m010101_010104_user_rbac extends Migration
         $auth->remove($auth->getPermission("viewGroup"));
 
     }
-}
+}*/

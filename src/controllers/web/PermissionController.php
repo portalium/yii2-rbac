@@ -66,6 +66,6 @@ class PermissionController extends BaseAuthItemController
     {
         if (!Yii::$app->user->can('userWebPermissionViewPath'))
             throw new ForbiddenHttpException(Module::t("Sorry you are not allowed to set Permission"));
-        return '@portalium/' . $this->module->id . '/views/' . Yii::$app->id . '/auth/item';
+        return '@portalium/' . $this->module->id . '/views/' . Yii::$app->id . '/item';
     }
 }

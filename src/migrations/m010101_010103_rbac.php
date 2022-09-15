@@ -1,14 +1,14 @@
 <?php
 use yii\db\Migration;
 
-class m010101_010103_user_rbac extends Migration
+class m010101_010103_rbac extends Migration
 {
     public function up()
     {
         $auth = Yii::$app->authManager;
 
         // add "createUser" permission
-        $createUser = $auth->createPermission('createUser');
+        /*$createUser = $auth->createPermission('createUser');
         $createUser->description = 'Create a User';
         $auth->add($createUser);
 
@@ -19,7 +19,7 @@ class m010101_010103_user_rbac extends Migration
         // add "deleteUser" permission
         $deleteUser = $auth->createPermission('deleteUser');
         $deleteUser->description = 'Delete User';
-        $auth->add($deleteUser);
+        $auth->add($deleteUser);*/
 
         // add "setRole" permission
         $setRole = $auth->createPermission('setRole');
@@ -32,7 +32,7 @@ class m010101_010103_user_rbac extends Migration
         $auth->add($setAssignment);
 
         // add "createGroup" permission
-        $createGroup = $auth->createPermission('createGroup');
+        /*$createGroup = $auth->createPermission('createGroup');
         $createGroup->description = 'Create a Group';
         $auth->add($createGroup);
 
@@ -53,7 +53,7 @@ class m010101_010103_user_rbac extends Migration
         // add "importUser" permission
         $importUser = $auth->createPermission('importUser');
         $importUser->description = 'Import User';
-        $auth->add($importUser);
+        $auth->add($importUser);*/
 
         // add "setPermission" permission
         $setPermission = $auth->createPermission('setPermission');
@@ -63,16 +63,16 @@ class m010101_010103_user_rbac extends Migration
         $admin = $auth->createRole('admin');
         $admin->description = 'Admin';
         $auth->add($admin);
-        $auth->addChild($admin, $createUser);
+        /*$auth->addChild($admin, $createUser);
         $auth->addChild($admin, $updateUser);
-        $auth->addChild($admin, $deleteUser);
+        $auth->addChild($admin, $deleteUser);*/
         $auth->addChild($admin, $setRole);
         $auth->addChild($admin, $setAssignment);
-        $auth->addChild($admin, $createGroup);
+        /*$auth->addChild($admin, $createGroup);
         $auth->addChild($admin, $updateGroup);
         $auth->addChild($admin, $deleteGroup);
         $auth->addChild($admin, $membersGroup);
-        $auth->addChild($admin, $importUser);
+        $auth->addChild($admin, $importUser);*/
         $auth->addChild($admin, $setPermission);
         $auth->assign($admin, 1);
 
@@ -84,16 +84,16 @@ class m010101_010103_user_rbac extends Migration
     public function down()
     {
         $auth = Yii::$app->authManager;
-        $auth->remove($auth->getPermission("createUser"));
+        /*$auth->remove($auth->getPermission("createUser"));
         $auth->remove($auth->getPermission("updateUser"));
-        $auth->remove($auth->getPermission("deleteUser"));
+        $auth->remove($auth->getPermission("deleteUser"));*/
         $auth->remove($auth->getPermission("setRole"));
         $auth->remove($auth->getPermission("setAssignment"));
-        $auth->remove($auth->getPermission("createGroup"));
+        /*$auth->remove($auth->getPermission("createGroup"));
         $auth->remove($auth->getPermission("updateGroup"));
         $auth->remove($auth->getPermission("deleteGroup"));
         $auth->remove($auth->getPermission("membersGroup"));
-        $auth->remove($auth->getPermission("importUser"));
+        $auth->remove($auth->getPermission("importUser"));*/
         $auth->remove($auth->getPermission("setPermission"));
         $auth->remove($auth->getRole("admin"));
 
