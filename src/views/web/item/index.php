@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
     $buttonsKeyArray['bulkAssignment'] = function ($url, $model) {
         return Html::a(
             Html::tag('i', '', ['class' => 'fa fa-fw fa-cog']),
-            ['/user/auth/bulk-assignment', 'id' => $model->name],
+            ['/rbac/bulk-assignment', 'id' => $model->name],
             ['title' => Module::t('Bulk Assignment')]
         );
     };
