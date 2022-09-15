@@ -254,7 +254,7 @@ class AuthItem extends Model
      * Get users
      * @return array
      */
-    /*public function getUsers()
+    public function getUsers()
     {
         $result = [];
         $ids = $this->manager->getUserIdsByRole($this->name);
@@ -289,7 +289,7 @@ class AuthItem extends Model
             }
         }
         return $result;
-    }*/
+    }
 
 
     /**
