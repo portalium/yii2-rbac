@@ -2,6 +2,10 @@
 
 namespace portalium\rbac\controllers\web;
 
+use Yii;
+use yii\filters\VerbFilter;
+use yii\web\ForbiddenHttpException;
+use yii\web\NotFoundHttpException;
 use portalium\rbac\components\BulkAuthAssignmentHelper;
 use portalium\rbac\models\Assignment;
 use portalium\rbac\models\AuthItem;
@@ -9,10 +13,6 @@ use portalium\rbac\Module;
 use portalium\user\models\GroupSearch;
 use portalium\user\models\UserSearch;
 use portalium\web\Controller as WebController;
-use Yii;
-use yii\filters\VerbFilter;
-use yii\web\ForbiddenHttpException;
-use yii\web\NotFoundHttpException;
 
 /**
  * Bulk Assignment Controller

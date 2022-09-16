@@ -2,12 +2,12 @@
 
 namespace portalium\rbac\controllers\web;
 
-use portalium\rbac\components\BaseAuthItemController;
-use portalium\rbac\Module;
 use Yii;
 use yii\rbac\Item;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
+use portalium\rbac\components\BaseAuthItemController;
+use portalium\rbac\Module;
 
 /**
  * PermissionController implements the CRUD actions for AuthItem model.

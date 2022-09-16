@@ -2,12 +2,12 @@
 
 namespace portalium\rbac\models;
 
-use portalium\user\models\User;
-use portalium\user\Module;
 use Yii;
 use yii\base\Model;
 use yii\helpers\Url;
 use yii\rbac\Item;
+use portalium\user\models\User;
+use portalium\user\Module;
 
 //use portalium\user\models\User;
 //use portalium\user\Module;

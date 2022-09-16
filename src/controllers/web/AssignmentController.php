@@ -2,14 +2,14 @@
 
 namespace portalium\rbac\controllers\web;
 
-use portalium\rbac\models\Assignment;
-use portalium\rbac\Module;
-use portalium\user\models\User;
-use portalium\web\Controller as WebController;
 use Yii;
 use yii\filters\VerbFilter;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
+use portalium\rbac\models\Assignment;
+use portalium\rbac\Module;
+use portalium\user\models\User;
+use portalium\web\Controller as WebController;
 
 /**
  * AssignmentController implements the CRUD actions for Assignment model.
