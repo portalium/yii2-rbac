@@ -12,20 +12,6 @@ class m010101_010102_rbac_menu extends Migration
     {
 
         $id_menu = Menu::find()->where(['slug' => 'web-menu'])->one()->id_menu;
-        $this->insert('menu_item', [
-            'id_item' => NULL,
-            'label' => 'RBAC',
-            'slug' => 'users',
-            'type' => '1',
-            'style' => '{"icon":"","color":"","iconSize":""}',
-            'data' => '{"type":"1","data":{"route":"#"}}',
-            'sort' => '2',
-            'id_parent' => '0',
-            'id_menu' => $id_menu,
-            'name_auth' => 'userWebDefaultIndex',
-            'date_create' => '2022-06-13 15:30:28',
-            'date_update' => '2022-06-13 15:30:28'
-        ]);
 
         $idParent = MenuItem::find()->where(['slug' => 'users'])->one()->id_item;
 
@@ -37,7 +23,7 @@ class m010101_010102_rbac_menu extends Migration
 
     public function down()
     {
-        $ids = $this->db->createCommand('SELECT id_item FROM menu_item WHERE slug in (\'users-permissions\', \'users-roles\' ')')->queryColumn();
+        $ids = $this->db->createCommand('SELECT id_item FROM menu_item WHERE slug in (\'users-permissions\', \'users-roles\' )')->queryColumn();
 
         $this->delete('menu_item', ['id_item' => $ids]);
     }
