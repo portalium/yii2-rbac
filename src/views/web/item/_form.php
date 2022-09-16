@@ -1,9 +1,9 @@
 <?php
 
+use portalium\rbac\Module;
+use portalium\theme\widgets\Panel;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use portalium\theme\widgets\Panel;
-use portalium\rbac\Module;
 
 /* @var $this yii\web\View */
 /* @var $model portalium\user\models\auth\AuthItem */
@@ -14,7 +14,7 @@ $context = $this->context;
 $labels = $context->labels();
 
 ?>
-<?php $form = ActiveForm::begin(['id' => 'item-form']); ?>
+<?php $form = ActiveForm::begin(['id' => 'item-form']);?>
 <?php Panel::begin([
     'title' => Html::encode($this->title),
     'actions' => [
@@ -24,17 +24,17 @@ $labels = $context->labels();
         'footer' => [
             Html::submitButton($model->isNewRecord ? Module::t('Save') : Module::t('Update'), [
                 'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary',
-                'name' => 'submit-button'])
-        ]
-    ]
-]) ?>
+                'name' => 'submit-button']),
+        ],
+    ],
+])?>
     <div class="row">
         <div class="col-sm-12">
-            <?= $form->field($model, 'name')->textInput(['maxlength' => 64]) ?>
+            <?=$form->field($model, 'name')->textInput(['maxlength' => 64])?>
 
-            <?= $form->field($model, 'description')->textarea(['rows' => 2]) ?>
+            <?=$form->field($model, 'description')->textarea(['rows' => 2])?>
         </div>
     </div>
 
-<?php Panel::end() ?>
-<?php ActiveForm::end(); ?>
+<?php Panel::end()?>
+<?php ActiveForm::end();?>

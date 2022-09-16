@@ -1,9 +1,9 @@
 <?php
 
-use yii\helpers\Html;
+use portalium\rbac\Module;
 use portalium\theme\widgets\GridView;
 use portalium\theme\widgets\Panel;
-use portalium\rbac\Module;
+use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -23,54 +23,54 @@ $this->params['breadcrumbs'][] = $this->title;
                 Module::t(''),
                 ['create'],
                 ['class' => 'fa fa-plus btn btn-success']
-            )
-        ]
-    ]
-]) ?>
-    <?php
-    $buttonsKeyArray = [];
-
-    if ($this->context->getType() === 2) {
-        $buttonsKeyArray['delete'] = function ($url, $model) {
-            return null;
-        };
-        $buttonsKeyArray['update'] = function ($url, $model) {
-            return null;
-        };
-    }
-
-    $buttonsKeyArray['bulkAssignment'] = function ($url, $model) {
-        return Html::a(
-            Html::tag('i', '', ['class' => 'fa fa-fw fa-cog']),
-            ['/rbac/bulk-assignment', 'id' => $model->name],
-            ['title' => Module::t('Bulk Assignment')]
-        );
-    };
-
-    ?>
-    <?=
-    GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'layout' => '{items}{pager}{summary}',
-        'columns' => [
-            [
-                'class' => 'yii\grid\SerialColumn'
-            ],
-            [
-                'attribute' => 'name',
-                'label' => Module::t('Name'),
-            ],
-            [
-                'attribute' => 'description',
-                'label' => Module::t('Description'),
-            ],
-            [
-                'class' => 'yii\grid\ActionColumn',
-                'template' => '{view} {update} {bulkAssignment} {delete}',
-                'buttons' => $buttonsKeyArray
-            ],
+            ),
         ],
-    ])
-    ?>
-<?php Panel::end() ?>
+    ],
+])?>
+    <?php
+$buttonsKeyArray = [];
+
+if ($this->context->getType() === 2) {
+    $buttonsKeyArray['delete'] = function ($url, $model) {
+        return null;
+    };
+    $buttonsKeyArray['update'] = function ($url, $model) {
+        return null;
+    };
+}
+
+$buttonsKeyArray['bulkAssignment'] = function ($url, $model) {
+    return Html::a(
+        Html::tag('i', '', ['class' => 'fa fa-fw fa-cog']),
+        ['/rbac/bulk-assignment', 'id' => $model->name],
+        ['title' => Module::t('Bulk Assignment')]
+    );
+};
+
+?>
+    <?=
+GridView::widget([
+    'dataProvider' => $dataProvider,
+    'filterModel' => $searchModel,
+    'layout' => '{items}{pager}{summary}',
+    'columns' => [
+        [
+            'class' => 'yii\grid\SerialColumn',
+        ],
+        [
+            'attribute' => 'name',
+            'label' => Module::t('Name'),
+        ],
+        [
+            'attribute' => 'description',
+            'label' => Module::t('Description'),
+        ],
+        [
+            'class' => 'yii\grid\ActionColumn',
+            'template' => '{view} {update} {bulkAssignment} {delete}',
+            'buttons' => $buttonsKeyArray,
+        ],
+    ],
+])
+?>
+<?php Panel::end()?>

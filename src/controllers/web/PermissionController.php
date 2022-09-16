@@ -2,12 +2,12 @@
 
 namespace portalium\rbac\controllers\web;
 
+use portalium\rbac\components\BaseAuthItemController;
 use portalium\rbac\Module;
 use Yii;
+use yii\rbac\Item;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
-use yii\rbac\Item;
-use portalium\rbac\components\BaseAuthItemController;
 
 /**
  * PermissionController implements the CRUD actions for AuthItem model.
@@ -58,14 +58,15 @@ class PermissionController extends BaseAuthItemController
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 
-
     /**
      * {@inheritdoc}
      */
     public function getViewPath()
     {
-        if (!Yii::$app->user->can('userWebPermissionViewPath'))
+        if (!Yii::$app->user->can('RBACWebPermissionViewPath')) {
             throw new ForbiddenHttpException(Module::t("Sorry you are not allowed to set Permission"));
+        }
+
         return '@portalium/' . $this->module->id . '/views/' . Yii::$app->id . '/item';
     }
 }

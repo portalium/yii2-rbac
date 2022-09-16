@@ -17,5 +17,3 @@ $this->params['breadcrumbs'][] = Module::t('Update');
 $this->render('_form', [
     'model' => $model,
 ]);
-?>
-

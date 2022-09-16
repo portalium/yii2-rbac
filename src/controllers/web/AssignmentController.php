@@ -2,14 +2,14 @@
 
 namespace portalium\rbac\controllers\web;
 
+use portalium\rbac\models\Assignment;
 use portalium\rbac\Module;
+use portalium\user\models\User;
+use portalium\web\Controller as WebController;
 use Yii;
+use yii\filters\VerbFilter;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
-use portalium\web\Controller as WebController;
-use portalium\rbac\models\Assignment;
-use portalium\user\models\User;
 
 /**
  * AssignmentController implements the CRUD actions for Assignment model.
@@ -39,8 +39,9 @@ class AssignmentController extends WebController
      */
     public function actionView($id)
     {
-        if (!Yii::$app->user->can('userWebAssignmentView'))
+        if (!Yii::$app->user->can('RBACWebAssignmentView')) {
             throw new ForbiddenHttpException(Module::t("Sorry you are not allowed to set Assignment"));
+        }
 
         $model = $this->findModel($id);
 
@@ -56,8 +57,9 @@ class AssignmentController extends WebController
      */
     public function actionAssign($id)
     {
-        if (!Yii::$app->user->can('userWebAssignmentAssign'))
+        if (!Yii::$app->user->can('RBACWebAssignmentAssign')) {
             throw new ForbiddenHttpException(Module::t("Sorry you are not allowed to set Assignment"));
+        }
 
         $items = $this->request->post('items', []);
         $model = new Assignment($id);
@@ -73,8 +75,9 @@ class AssignmentController extends WebController
      */
     public function actionRevoke($id)
     {
-        if (!Yii::$app->user->can('userWebAssignmentRevoke'))
+        if (!Yii::$app->user->can('RBACWebAssignmentRevoke')) {
             throw new ForbiddenHttpException(Module::t("Sorry you are not allowed to set Assignment"));
+        }
 
         $items = $this->request->post('items', []);
         $model = new Assignment($id);

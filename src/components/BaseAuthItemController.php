@@ -4,21 +4,21 @@
 
 namespace portalium\rbac\components;
 
-use Yii;
-use yii\web\NotFoundHttpException;
-use yii\base\NotSupportedException;
-use yii\filters\VerbFilter;
-use portalium\web\Controller as WebController;
-use yii\rbac\Item;
 use portalium\rbac\models\AuthItem;
 use portalium\rbac\models\AuthItemSearch;
+use portalium\web\Controller as WebController;
+use Yii;
+use yii\base\NotSupportedException;
+use yii\filters\VerbFilter;
+use yii\rbac\Item;
+use yii\web\NotFoundHttpException;
 
 /**
  * BaseAuthItemController implements the CRUD actions for AuthItem model.
  *
  * @property integer $type
  * @property array $labels
- * 
+ *
  */
 class BaseAuthItemController extends WebController
 {
@@ -100,7 +100,6 @@ class BaseAuthItemController extends WebController
         }
     }
 
-
     /**
      * Displays a single AuthItem model.
      * @param  string $id
@@ -135,7 +134,7 @@ class BaseAuthItemController extends WebController
      */
     public function actionGetUsers($id)
     {
-        $page =  $this->request->get('page', 0);
+        $page = $this->request->get('page', 0);
         $model = $this->findModel($id);
         Yii::$app->getResponse()->format = 'json';
 
@@ -149,7 +148,7 @@ class BaseAuthItemController extends WebController
      */
     public function actionRemove($id)
     {
-        $items =  $this->request->post('items', []);
+        $items = $this->request->post('items', []);
         $model = $this->findModel($id);
         $success = $model->removeChildren($items);
         Yii::$app->getResponse()->format = 'json';

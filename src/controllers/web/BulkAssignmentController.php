@@ -2,18 +2,17 @@
 
 namespace portalium\rbac\controllers\web;
 
-use Yii;
-use yii\web\ForbiddenHttpException;
-use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
-use portalium\web\Controller as WebController;
-use portalium\rbac\Module;
+use portalium\rbac\components\BulkAuthAssignmentHelper;
 use portalium\rbac\models\Assignment;
 use portalium\rbac\models\AuthItem;
-use portalium\rbac\components\BulkAuthAssignmentHelper;
+use portalium\rbac\Module;
 use portalium\user\models\GroupSearch;
 use portalium\user\models\UserSearch;
-
+use portalium\web\Controller as WebController;
+use Yii;
+use yii\filters\VerbFilter;
+use yii\web\ForbiddenHttpException;
+use yii\web\NotFoundHttpException;
 
 /**
  * Bulk Assignment Controller
@@ -41,8 +40,9 @@ class BulkAssignmentController extends WebController
      */
     public function actionIndex($id)
     {
-        if (!Yii::$app->user->can('userWebBulkAssignmentIndex'))
+        if (!Yii::$app->user->can('RBACWebBulkAssignmentIndex')) {
             throw new ForbiddenHttpException(Module::t("Sorry you are not allowed to set Assignment"));
+        }
 
         $model = $this->findModel($id);
         return $this->render('index', [
@@ -59,8 +59,9 @@ class BulkAssignmentController extends WebController
      */
     public function actionAssign($id)
     {
-        if (!Yii::$app->user->can('userWebBulkAssignmentAssign'))
+        if (!Yii::$app->user->can('RBACWebBulkAssignmentAssign')) {
             throw new ForbiddenHttpException(Module::t("Sorry you are not allowed to set Assignment"));
+        }
 
         $success = BulkAuthAssignmentHelper::assignByMixed($id, $this->request->post('items', []));
         Yii::$app->getResponse()->format = 'json';
@@ -73,8 +74,9 @@ class BulkAssignmentController extends WebController
      */
     public function actionRevoke($id)
     {
-        if (!Yii::$app->user->can('userWebBulkAssignmentRevoke'))
+        if (!Yii::$app->user->can('RBACWebBulkAssignmentRevoke')) {
             throw new ForbiddenHttpException(Module::t("Sorry you are not allowed to set Assignment"));
+        }
 
         $success = BulkAuthAssignmentHelper::revokeByMixed($id, $this->request->post('items', []));
         Yii::$app->getResponse()->format = 'json';

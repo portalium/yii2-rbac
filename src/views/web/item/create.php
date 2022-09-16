@@ -8,12 +8,11 @@ use portalium\rbac\Module;
 $context = $this->context;
 $labels = $context->labels();
 
-$this->title = Module::t( 'Create ' . $labels['Item']);
-$this->params['breadcrumbs'][] = ['label' => Module::t( $labels['Items']), 'url' => ['index']];
+$this->title = Module::t('Create ' . $labels['Item']);
+$this->params['breadcrumbs'][] = ['label' => Module::t($labels['Items']), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <?=
 $this->render('_form', [
     'model' => $model,
 ]);
-?>

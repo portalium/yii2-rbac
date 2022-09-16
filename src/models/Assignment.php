@@ -58,7 +58,7 @@ class Assignment extends BaseObject
                 $item = $item ?: $this->manager->getPermission($name);
                 $this->manager->assign($item, $this->userId);
                 $success++;
-            } catch (\Exception $e) {
+            } catch (\Exception$e) {
                 Yii::error($e->getMessage(), __METHOD__);
             }
         }
@@ -79,7 +79,7 @@ class Assignment extends BaseObject
                 $item = $item ?: $this->manager->getPermission($name);
                 $this->manager->revoke($item, $this->userId);
                 $success++;
-            } catch (\Exception $e) {
+            } catch (\Exception$e) {
                 Yii::error($e->getMessage(), __METHOD__);
             }
         }

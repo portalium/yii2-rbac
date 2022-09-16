@@ -2,10 +2,10 @@
 
 namespace portalium\rbac\controllers\web;
 
+use portalium\rbac\components\BaseAuthItemController;
 use portalium\rbac\Module;
 use Yii;
 use yii\rbac\Item;
-use portalium\rbac\components\BaseAuthItemController;
 use yii\web\ForbiddenHttpException;
 
 /**
@@ -19,7 +19,7 @@ class RoleController extends BaseAuthItemController
      */
     public function labels()
     {
-        return[
+        return [
             'Item' => 'Role',
             'Items' => 'Roles',
         ];
@@ -33,11 +33,12 @@ class RoleController extends BaseAuthItemController
         return Item::TYPE_ROLE;
     }
 
-
     public function getViewPath()
     {
-        if (!Yii::$app->user->can('userWebRoleViewPath'))
+        if (!Yii::$app->user->can('RBACWebRoleViewPath')) {
             throw new ForbiddenHttpException('You are not allowed to perform this action.');
+        }
+
         return '@portalium/' . $this->module->id . '/views/' . Yii::$app->id . '/item';
     }
 }

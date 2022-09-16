@@ -2,17 +2,15 @@
 
 namespace portalium\rbac\models;
 
-
-use Yii;
-use yii\helpers\Url;
-use yii\base\Model;
-use yii\rbac\Item;
-use portalium\user\Module;
 use portalium\user\models\User;
+use portalium\user\Module;
+use Yii;
+use yii\base\Model;
+use yii\helpers\Url;
+use yii\rbac\Item;
 
 //use portalium\user\models\User;
 //use portalium\user\Module;
-
 
 /**
  * This is the model class for table "auth_item".
@@ -188,7 +186,7 @@ class AuthItem extends Model
                 try {
                     $this->manager->addChild($this->_item, $child);
                     $success++;
-                } catch (\Exception $exc) {
+                } catch (\Exception$exc) {
                     Yii::error($exc->getMessage(), __METHOD__);
                 }
             }
@@ -199,7 +197,7 @@ class AuthItem extends Model
     /**
      * Remove an item as a child of another item.
      * @param array $items
-     * @return int 
+     * @return int
      */
     public function removeChildren($items)
     {
@@ -213,7 +211,7 @@ class AuthItem extends Model
                 try {
                     $this->manager->removeChild($this->_item, $child);
                     $success++;
-                } catch (\Exception $exc) {
+                } catch (\Exception$exc) {
                     Yii::error($exc->getMessage(), __METHOD__);
                 }
             }
@@ -266,7 +264,7 @@ class AuthItem extends Model
             'allModels' => $ids,
             'pagination' => [
                 'pageSize' => 100,
-            ]
+            ],
         ]);
 
         $users = User::find()
@@ -293,7 +291,6 @@ class AuthItem extends Model
         }
         return $result;
     }
-
 
     /**
      * Get item

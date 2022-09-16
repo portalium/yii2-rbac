@@ -2,8 +2,8 @@
 
 namespace portalium\rbac\components;
 
-use portalium\user\models\User;
 use portalium\user\models\Group;
+use portalium\user\models\User;
 
 /**
  * Helper component for bulk assignment operations.
@@ -15,7 +15,7 @@ class BulkAuthAssignmentHelper
      * Bulk assign by mixed both groups and users.
      * @param string $itemName
      * @param array $data
-     * 
+     *
      * @return int Number of successful assign
      */
     public static function assignByMixed($itemName, $data)
@@ -39,7 +39,7 @@ class BulkAuthAssignmentHelper
      * Bulk revoke by mixed both groups and users.
      * @param string $itemName
      * @param array $data
-     * 
+     *
      * @return int Number of successful revoke
      */
     public static function revokeByMixed($itemName, $data)
@@ -61,7 +61,7 @@ class BulkAuthAssignmentHelper
      * Bulk assign by group id.
      * @param string $itemName
      * @param int $groupId
-     * 
+     *
      * @return int Number of successful assign
      */
     public static function assignByGroupId($itemName, $groupId)
@@ -74,7 +74,7 @@ class BulkAuthAssignmentHelper
      * Bulk revoke by group id.
      * @param string $itemName
      * @param int $groupId
-     * 
+     *
      * @return int Number of successful revoke
      */
     public static function revokeByGroupId($itemName, $groupId)
@@ -90,7 +90,7 @@ class BulkAuthAssignmentHelper
      * TODO: Batch insert refactor
      * @param string $itemName
      * @param array $userIds
-     * 
+     *
      * @return int Number of successful assign
      */
     public static function assignByUserIds($itemName, $userIds)
@@ -105,20 +105,19 @@ class BulkAuthAssignmentHelper
                 }
                 \Yii::$app->authManager->assign($item, $id);
                 $success++;
-            } catch (\Exception $e) {
+            } catch (\Exception$e) {
                 \Yii::error($e->getMessage(), __METHOD__);
             }
         }
         return $success;
     }
 
-
     /**
      * Bulk revoke by user ids.
      * TODO: Batch delete refactor
      * @param string $itemName
      * @param array $userIds
-     * 
+     *
      * @return int
      */
     public static function revokeByUserIds($itemName, $userIds)
@@ -132,7 +131,7 @@ class BulkAuthAssignmentHelper
                 }
                 \Yii::$app->authManager->revoke($item, $id);
                 $success++;
-            } catch (\Exception $e) {
+            } catch (\Exception$e) {
                 \Yii::error($e->getMessage(), __METHOD__);
             }
         }

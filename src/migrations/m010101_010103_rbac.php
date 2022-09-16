@@ -7,7 +7,6 @@ class m010101_010103_rbac extends Migration
     {
         $auth = Yii::$app->authManager;
 
-
         // add "setRole" permission
         $setRole = $auth->createPermission('setRole');
         $setRole->description = 'Set a Role';
@@ -34,6 +33,7 @@ class m010101_010103_rbac extends Migration
         $user = $auth->createRole('user');
         $user->description = 'User';
         $auth->add($user);
+
     }
 
     public function down()
