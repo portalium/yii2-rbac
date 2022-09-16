@@ -22,17 +22,11 @@ class m010101_010103_rbac extends Migration
         $setPermission->description = 'Set Permission';
         $auth->add($setPermission);
 
-        $admin = $auth->createRole('admin');
-        $admin->description = 'Admin';
-        $auth->add($admin);
+
+        $admin=$auth->getRole("admin");
         $auth->addChild($admin, $setRole);
         $auth->addChild($admin, $setAssignment);
         $auth->addChild($admin, $setPermission);
-        $auth->assign($admin, 1);
-
-        $user = $auth->createRole('user');
-        $user->description = 'User';
-        $auth->add($user);
 
     }
 
