@@ -4,14 +4,14 @@
 
 namespace portalium\rbac\components;
 
-use portalium\rbac\models\AuthItem;
-use portalium\rbac\models\AuthItemSearch;
-use portalium\web\Controller as WebController;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\filters\VerbFilter;
 use yii\rbac\Item;
 use yii\web\NotFoundHttpException;
+use portalium\rbac\models\AuthItem;
+use portalium\rbac\models\AuthItemSearch;
+use portalium\web\Controller as WebController;
 
 /**
  * BaseAuthItemController implements the CRUD actions for AuthItem model.
