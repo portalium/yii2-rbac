@@ -1,7 +1,7 @@
 {
 	"name" : "portalium/portalium-rbac",
 	"description" : "Module Rbac for Portalium",
-	"type" : "yii2-extension",
+	"type" : "portalium-module",
 	"license": "MIT",
 	"homepage" : "https://portalium.dev",
 	"authors" : [
