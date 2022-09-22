@@ -1,9 +1,9 @@
 <?php
 
-use portalium\rbac\Module;
-use portalium\theme\widgets\Panel;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use portalium\rbac\Module;
+use portalium\theme\widgets\Panel;
 
 /* @var $this yii\web\View */
 /* @var $model portalium\user\models\auth\AuthItem */

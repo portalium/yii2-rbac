@@ -1,12 +1,12 @@
 <?php
 
-use portalium\rbac\Module;
-use portalium\theme\widgets\DetailView;
-use portalium\theme\widgets\Panel;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\helpers\Url;
 use yii\web\YiiAsset;
+use portalium\rbac\Module;
+use portalium\theme\widgets\DetailView;
+use portalium\theme\widgets\Panel;
 
 /* @var $this yii\web\View */
 /* @var $context portalium\user\components\BaseAuthItemController */
