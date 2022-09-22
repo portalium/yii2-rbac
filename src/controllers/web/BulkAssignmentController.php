@@ -40,7 +40,7 @@ class BulkAssignmentController extends WebController
      */
     public function actionIndex($id)
     {
-        if (!Yii::$app->user->can('RBACWebBulkAssignmentIndex')) {
+        if (!Yii::$app->user->can('rbacWebBulkAssignmentIndex')) {
             throw new ForbiddenHttpException(Module::t("Sorry you are not allowed to set Assignment"));
         }
 
@@ -59,7 +59,7 @@ class BulkAssignmentController extends WebController
      */
     public function actionAssign($id)
     {
-        if (!Yii::$app->user->can('RBACWebBulkAssignmentAssign')) {
+        if (!Yii::$app->user->can('rbacWebBulkAssignmentAssign')) {
             throw new ForbiddenHttpException(Module::t("Sorry you are not allowed to set Assignment"));
         }
 
@@ -74,7 +74,7 @@ class BulkAssignmentController extends WebController
      */
     public function actionRevoke($id)
     {
-        if (!Yii::$app->user->can('RBACWebBulkAssignmentRevoke')) {
+        if (!Yii::$app->user->can('rbacWebBulkAssignmentRevoke')) {
             throw new ForbiddenHttpException(Module::t("Sorry you are not allowed to set Assignment"));
         }
 

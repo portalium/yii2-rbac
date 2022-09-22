@@ -15,40 +15,40 @@ class m010101_010105_rbac extends Migration
         $auth->remove($auth->getPermission("setAssignment"));
         $auth->remove($auth->getPermission("setPermission"));
 
-        $RBACWebAssignmentView = $auth->createPermission('RBACWebAssignmentView');
-        $RBACWebAssignmentView->description = 'View RBAC assignment';
-        $auth->add($RBACWebAssignmentView);
-        $auth->addChild($admin, $RBACWebAssignmentView);
+        $rbacWebAssignmentView = $auth->createPermission('rbacWebAssignmentView');
+        $rbacWebAssignmentView->description = 'View rbac assignment';
+        $auth->add($rbacWebAssignmentView);
+        $auth->addChild($admin, $rbacWebAssignmentView);
 
-        $RBACWebAssignmentAssign = $auth->createPermission('RBACWebAssignmentAssign');
-        $RBACWebAssignmentAssign->description = 'Assign RBAC assignment';
-        $auth->add($RBACWebAssignmentAssign);
-        $auth->addChild($admin, $RBACWebAssignmentAssign);
+        $rbacWebAssignmentAssign = $auth->createPermission('rbacWebAssignmentAssign');
+        $rbacWebAssignmentAssign->description = 'Assign rbac assignment';
+        $auth->add($rbacWebAssignmentAssign);
+        $auth->addChild($admin, $rbacWebAssignmentAssign);
 
-        $RBACWebAssignmentRevoke = $auth->createPermission('RBACWebAssignmentRevoke');
-        $RBACWebAssignmentRevoke->description = 'Revoke RBAC assignment';
-        $auth->add($RBACWebAssignmentRevoke);
-        $auth->addChild($admin, $RBACWebAssignmentRevoke);
+        $rbacWebAssignmentRevoke = $auth->createPermission('rbacWebAssignmentRevoke');
+        $rbacWebAssignmentRevoke->description = 'Revoke rbac assignment';
+        $auth->add($rbacWebAssignmentRevoke);
+        $auth->addChild($admin, $rbacWebAssignmentRevoke);
 
-        $RBACWebBulkAssignmentIndex = $auth->createPermission('RBACWebBulkAssignmentIndex');
-        $RBACWebBulkAssignmentIndex->description = 'View bulk assignment';
-        $auth->add($RBACWebBulkAssignmentIndex);
-        $auth->addChild($admin, $RBACWebBulkAssignmentIndex);
+        $rbacWebBulkAssignmentIndex = $auth->createPermission('rbacWebBulkAssignmentIndex');
+        $rbacWebBulkAssignmentIndex->description = 'View bulk assignment';
+        $auth->add($rbacWebBulkAssignmentIndex);
+        $auth->addChild($admin, $rbacWebBulkAssignmentIndex);
 
-        $RBACWebBulkAssignmentAssign = $auth->createPermission('RBACWebBulkAssignmentAssign');
-        $RBACWebBulkAssignmentAssign->description = 'Assign bulk assignment';
-        $auth->add($RBACWebBulkAssignmentAssign);
-        $auth->addChild($admin, $RBACWebBulkAssignmentAssign);
+        $rbacWebBulkAssignmentAssign = $auth->createPermission('rbacWebBulkAssignmentAssign');
+        $rbacWebBulkAssignmentAssign->description = 'Assign bulk assignment';
+        $auth->add($rbacWebBulkAssignmentAssign);
+        $auth->addChild($admin, $rbacWebBulkAssignmentAssign);
 
-        $RBACWebBulkAssignmentRevoke = $auth->createPermission('RBACWebBulkAssignmentRevoke');
-        $RBACWebBulkAssignmentRevoke->description = 'Revoke bulk assignment';
-        $auth->add($RBACWebBulkAssignmentRevoke);
-        $auth->addChild($admin, $RBACWebBulkAssignmentRevoke);
+        $rbacWebBulkAssignmentRevoke = $auth->createPermission('rbacWebBulkAssignmentRevoke');
+        $rbacWebBulkAssignmentRevoke->description = 'Revoke bulk assignment';
+        $auth->add($rbacWebBulkAssignmentRevoke);
+        $auth->addChild($admin, $rbacWebBulkAssignmentRevoke);
 
-        $RBACWebPermissionViewPath = $auth->createPermission('RBACWebPermissionViewPath');
-        $RBACWebPermissionViewPath->description = 'View permission path';
-        $auth->add($RBACWebPermissionViewPath);
-        $auth->addChild($admin, $RBACWebPermissionViewPath);
+        $rbacWebPermissionViewPath = $auth->createPermission('rbacWebPermissionViewPath');
+        $rbacWebPermissionViewPath->description = 'View permission path';
+        $auth->add($rbacWebPermissionViewPath);
+        $auth->addChild($admin, $rbacWebPermissionViewPath);
 
     }
 
@@ -56,13 +56,13 @@ class m010101_010105_rbac extends Migration
     {
         $auth = Yii::$app->authManager;
 
-        $auth->remove($auth->getPermission('RBACApiDefaultAssignmentView'));
-        $auth->remove($auth->getPermission('RBACApiDefaultAssignmentAssign'));
-        $auth->remove($auth->getPermission('RBACApiDefaultAssignmentRevoke'));
-        $auth->remove($auth->getPermission('RBACApiBulkAssignmentIndex'));
-        $auth->remove($auth->getPermission('RBACApiBulkAssignmentAssign'));
-        $auth->remove($auth->getPermission('RBACApiBulkAssignmentRevoke'));
-        $auth->remove($auth->getPermission('RBACApiPermissionViewPath'));
+        $auth->remove($auth->getPermission('rbacApiDefaultAssignmentView'));
+        $auth->remove($auth->getPermission('rbacApiDefaultAssignmentAssign'));
+        $auth->remove($auth->getPermission('rbacApiDefaultAssignmentRevoke'));
+        $auth->remove($auth->getPermission('rbacApiBulkAssignmentIndex'));
+        $auth->remove($auth->getPermission('rbacApiBulkAssignmentAssign'));
+        $auth->remove($auth->getPermission('rbacApiBulkAssignmentRevoke'));
+        $auth->remove($auth->getPermission('rbacApiPermissionViewPath'));
 
     }
 }

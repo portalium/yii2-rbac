@@ -63,7 +63,7 @@ class PermissionController extends BaseAuthItemController
      */
     public function getViewPath()
     {
-        if (!Yii::$app->user->can('RBACWebPermissionViewPath')) {
+        if (!Yii::$app->user->can('rbacWebPermissionViewPath')) {
             throw new ForbiddenHttpException(Module::t("Sorry you are not allowed to set Permission"));
         }
 

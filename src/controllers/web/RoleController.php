@@ -35,7 +35,7 @@ class RoleController extends BaseAuthItemController
 
     public function getViewPath()
     {
-        if (!Yii::$app->user->can('RBACWebRoleViewPath')) {
+        if (!Yii::$app->user->can('rbacWebRoleViewPath')) {
             throw new ForbiddenHttpException('You are not allowed to perform this action.');
         }
 

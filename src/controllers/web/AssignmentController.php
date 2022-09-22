@@ -39,7 +39,7 @@ class AssignmentController extends WebController
      */
     public function actionView($id)
     {
-        if (!Yii::$app->user->can('RBACWebAssignmentView')) {
+        if (!Yii::$app->user->can('rbacWebAssignmentView')) {
             throw new ForbiddenHttpException(Module::t("Sorry you are not allowed to set Assignment"));
         }
 
@@ -57,7 +57,7 @@ class AssignmentController extends WebController
      */
     public function actionAssign($id)
     {
-        if (!Yii::$app->user->can('RBACWebAssignmentAssign')) {
+        if (!Yii::$app->user->can('rbacWebAssignmentAssign')) {
             throw new ForbiddenHttpException(Module::t("Sorry you are not allowed to set Assignment"));
         }
 
@@ -75,7 +75,7 @@ class AssignmentController extends WebController
      */
     public function actionRevoke($id)
     {
-        if (!Yii::$app->user->can('RBACWebAssignmentRevoke')) {
+        if (!Yii::$app->user->can('rbacWebAssignmentRevoke')) {
             throw new ForbiddenHttpException(Module::t("Sorry you are not allowed to set Assignment"));
         }
 
