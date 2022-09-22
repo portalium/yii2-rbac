@@ -3,19 +3,44 @@
 namespace portalium\rbac;
 
 class Module extends \portalium\base\Module
+
 {
+    public static $description = 'RBAC Management Module';
+    public static $name = 'RBAC';
+
     public $apiRules = [
         [
             'class' => 'yii\rest\UrlRule',
             'controller' => [
                 'rbac/default',
-            ]
+            ],
         ],
     ];
-    
+
+    public static $tablePrefix = 'rbac_';
+
+    public function getMenuItems()
+    {
+        $menuItems = [
+            [
+                [
+                    'menu' => 'web',
+                    'type' => 'action',
+                    'route' => '/rbac/role',
+                ],
+                [
+                    'menu' => 'web',
+                    'type' => 'action',
+                    'route' => '/rbac/permission',
+                ],
+            ],
+        ];
+        return $menuItems;
+    }
+
     public static function moduleInit()
     {
-        self::registerTranslation('rbac','@portalium/rbac/messages',[
+        self::registerTranslation('rbac', '@portalium/rbac/messages', [
             'rbac' => 'rbac.php',
         ]);
     }
