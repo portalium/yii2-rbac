@@ -5,6 +5,7 @@
 namespace portalium\rbac\components;
 
 use Yii;
+use portalium\rbac\Module;
 use yii\base\NotSupportedException;
 use yii\filters\VerbFilter;
 use yii\rbac\Item;
@@ -81,6 +82,7 @@ class BaseAuthItemController extends WebController
     {
         $model = $this->findModel($id);
         if ($model->load($this->request->post()) && $model->save()) {
+            Yii::$app->session->addFlash('success', Module::t('Role has been updated'));
             return $this->redirect(['view', 'id' => $model->name]);
         }
 
@@ -95,8 +97,9 @@ class BaseAuthItemController extends WebController
      */
     public function actionDelete($id)
     {
-        $model = $this->findModel($id);
-        Yii::$app->authManager->remove($model->item);
+        if($model = $this->findModel($id)){
+            Yii::$app->session->addFlash('info', Module::t('Role has been deleted'));
+        }
         return $this->redirect(['index']);
     }
 
@@ -110,6 +113,7 @@ class BaseAuthItemController extends WebController
         $model = new AuthItem();
         $model->type = $this->type;
         if ($model->load($this->request->post()) && $model->save()) {
+            Yii::$app->session->addFlash('success', Module::t('Role has been created'));
             return $this->redirect(['view', 'id' => $model->name]);
         } else {
             return $this->render('create', ['model' => $model]);

@@ -25,4 +25,7 @@ return[
     'Save' => 'Kaydet',
     'Permissions' => 'İzinler',
     'RBAC Management Module' => 'RBAC Yönetim Modülü',
+    'Role has been assigned' => 'Rol atanmıştır',
+    'Role has been updated' => 'Rol güncellenmiştir',
+    'Role has been revoked' => 'Rol kaldırılmıştır',
 ];

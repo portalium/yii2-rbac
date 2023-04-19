@@ -65,6 +65,7 @@ class AssignmentController extends WebController
         $model = new Assignment($id);
         $success = $model->assign($items);
         Yii::$app->getResponse()->format = 'json';
+        Yii::$app->session->addFlash('success', Module::t('Role has been assigned'));
         return array_merge($model->getItems(), ['success' => $success]);
     }
 
@@ -83,6 +84,7 @@ class AssignmentController extends WebController
         $model = new Assignment($id);
         $success = $model->revoke($items);
         Yii::$app->getResponse()->format = 'json';
+        Yii::$app->session->addFlash('info', Module::t('User has been revoked'));
         return array_merge($model->getItems(), ['success' => $success]);
     }
 
