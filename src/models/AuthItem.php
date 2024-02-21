@@ -263,9 +263,7 @@ class AuthItem extends Model
 
         $provider = new \yii\data\ArrayDataProvider([
             'allModels' => $ids,
-            'pagination' => [
-                'pageSize' => 100,
-            ],
+            
         ]);
 
         $users = User::find()
