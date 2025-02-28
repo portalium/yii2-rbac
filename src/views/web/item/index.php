@@ -57,7 +57,7 @@ GridView::widget([
     'layout' => '{items}{summary}{pagesizer}{pager}',
     'columns' => [
         [
-            'class' => 'yii\grid\SerialColumn',
+            'class' => 'portalium\grid\SerialColumn',
         ],
         [
             'attribute' => 'name',
