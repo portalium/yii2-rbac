@@ -25,4 +25,6 @@ return[
     'Save' => 'Kaydet',
     'Permissions' => 'İzinler',
     'RBAC Management Module' => 'RBAC Yönetim Modülü',
+    'Actions'  => 'Eylemler',
+    'Settings' => 'Ayarlar'
 ];
