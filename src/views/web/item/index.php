@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ],
 ])?>
-    <?php
+<?php
 $buttonsKeyArray = [];
 
 if ($this->context->getType() === 2) {
@@ -45,19 +45,19 @@ $buttonsKeyArray['bulkAssignment'] = function ($url, $model) {
     return Html::a(
         Html::tag('i', '', ['class' => 'fa fa-fw fa-cog']), 
         Url::toRoute(['/rbac/bulk-assignment', 'id' => $model->name]),
-        ['class' => 'btn btn-primary btn-xs', 'style' => 'padding: 2px 9px 2px 9px; display: inline-block;'] 
+        ['class' => 'btn btn-primary btn-xs', 'title' => Module::t('Settings'), 'style' => 'padding: 2px 9px 2px 9px; display: inline-block;'] 
     );
 };
 
 ?>
-    <?=
+<?=
 GridView::widget([
     'dataProvider' => $dataProvider,
     'filterModel' => $searchModel,
     'layout' => '{items}{summary}{pagesizer}{pager}',
     'columns' => [
         [
-            'class' => 'yii\grid\SerialColumn',
+            'class' => 'portalium\grid\SerialColumn',
         ],
         [
             'attribute' => 'name',
@@ -71,6 +71,7 @@ GridView::widget([
             'class' => ActionColumn::class,
             'template' => '{view} {update} {bulkAssignment} {delete}',
             'buttons' => $buttonsKeyArray,
+            'header' => Module::t('Actions')
         ],
     ],
 ])

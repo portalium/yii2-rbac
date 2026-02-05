@@ -36,8 +36,8 @@ class m010101_010102_rbac_menu extends Migration
         $id_item = MenuItem::find()->where(['slug' => 'site'])->one()->id_item;
 
         $this->batchInsert('menu_item', ['id_item', 'label', 'slug', 'type', 'style', 'data', 'sort', 'id_menu', 'id_user', 'name_auth', 'date_create', 'date_update'], [
-            [null, 'Permissions', 'users-permissions', '2', '{"icon":"","color":"","iconSize":"","display":false,"childDisplay":false}', '{"data":{"module":"rbac","routeType":"action","route":"\\/rbac\\/permission\\/index","model":null,"menuRoute":null,"menuType":"web"}}', 8, $id_menu, 1, 'rbacWebPermissionViewPath', '2022-06-13 15:32:26', '2022-06-13 15:32:26'],
-            [null, 'Roles', 'users-roles', '2', '{"icon":"","color":"","iconSize":"","display":false,"childDisplay":false}', '{"data":{"module":"rbac","routeType":"action","route":"\\/rbac\\/role\\/index","model":null,"menuRoute":null,"menuType":"web"}}', 9, $id_menu, 1, 'rbacWebRoleViewPath', '2022-06-13 15:32:26', '2022-06-13 15:32:26'],
+            [null, 'Permissions', 'users-permissions', '2', '{"icon":"","color":"","iconSize":"","display":"","childDisplay":false}', '{"data":{"module":"rbac","routeType":"action","route":"\\/rbac\\/permission\\/index","model":null,"menuRoute":null,"menuType":"web"}}', 8, $id_menu, 1, 'rbacWebPermissionViewPath', '2022-06-13 15:32:26', '2022-06-13 15:32:26'],
+            [null, 'Roles', 'users-roles', '2', '{"icon":"","color":"","iconSize":"","display":"","childDisplay":false}', '{"data":{"module":"rbac","routeType":"action","route":"\\/rbac\\/role\\/index","model":null,"menuRoute":null,"menuType":"web"}}', 9, $id_menu, 1, 'rbacWebRoleViewPath', '2022-06-13 15:32:26', '2022-06-13 15:32:26'],
         ]);
 
         $ids = MenuItem::find()->where(['slug' => ['users-permissions', 'users-roles']])->select('id_item')->column();
